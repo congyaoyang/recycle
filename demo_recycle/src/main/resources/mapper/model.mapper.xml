@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qianfeng.mapper.ModelMapper">
+    <select id="selectModelName" resultMap="baseResultMap">
+        select model_name from phone_model_info
+    </select>
+    <resultMap id="baseResultMap" type="com.qianfeng.po.PhoneModelInfo">
+        <id property="modelId" column="model_id" javaType="java.lang.Long"/>
+        <result property="modelName" column="model_name" javaType="java.lang.String"/>
+        <result property="modelImage" column="model_image" javaType="java.lang.String"/>
+        <result property="modelPrice" column="model_price" javaType="java.lang.Long"/>
+        <result property="imgUrl" column="img_url" javaType="java.lang.String"/>
+    </resultMap>
+
+    <!-- 查询手机型号和图片-->
+    <select id="selectModelNameAndImg" resultMap="baseResultMap">
+        select model_id,model_name,model_image from phone_model_info
+    </select>
+
+    <!-- 根据id查询所有型号手机-->
+    <select id="selectModelByBrandId" resultMap="baseResultMap">
+        select model_id,model_name,model_image from phone_model_info where brand_id=#{brandId}
+    </select>
+</mapper>

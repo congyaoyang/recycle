@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <style type="text/css">
+        #brand{
+            width:30px;
+            height:30px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--<div id="brand">
+    <a href="#" v-for="brand in brandList">{{brand.brandName}}</a>
+    &lt;!&ndash;<em>|</em>&ndash;&gt;
+    &lt;!&ndash;<template id="brand">&ndash;&gt;
+        &lt;!&ndash;<a href="ershoumeizu.html" v-for="brand in brandList">{{brand.name}}</a>&ndash;&gt;
+    &lt;!&ndash;</template>&ndash;&gt;
+</div>-->
+<div id="model">
+    <img :src=""
+</div>
+
+<script type="text/javascript">
+    /*var vue = new Vue({
+        el:"#brand",
+        data:{
+            brandList:null
+        },
+        //从服务器读取数据并挂在到html标签上
+        mounted(){
+            axios.get("http://192.168.53.251:8080/recycle/brand/1").then(response =>{this.brandList = response.data})
+        }
+    });*/
+    var vue1 = new Vue({
+        el:"#model",
+        data:{
+            modelList:null
+        },
+        mounted(){
+            axios.get("http://192.168.53.251:8080/recycle/model/nameAndImg").then(response =>{this.modelList = response.data})
+        }
+    });
+
+</script>
+</body>
+</html>
